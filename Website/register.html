@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lunary Network</title>
+    <link rel="icon" href="7BuDwFzo_400x400.png" type="image/x-icon">
+    <style>
+        body {
+            background-image: url('https://www.androidauthority.com/wp-content/uploads/2024/02/Cool-wallpaper-5.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .content {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .language-select {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .language-select img {
+            height: 40px;
+            cursor: pointer;
+        }
+        .language-select select {
+            display: none;
+        }
+        .language-menu {
+            display: none;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            top: 50px;
+            left: 0;
+            z-index: 10;
+        }
+        .language-menu label {
+            display: block;
+            margin-bottom: 5px;
+            color: white;
+        }
+        .form-container {
+            margin-top: 20px;
+        }
+        .form-container h2 {
+            margin-bottom: 20px;
+        }
+        .form-container form {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .form-container .toggle-link {
+            display: block;
+            margin-top: 10px;
+            color: #007bff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body onload="changeLanguage('en')">
+    <div class="content">
+        <img src="https://www.lunarclient.com/assets/img/default-twitter-icon.webp" alt="Lunar Client" height="350">
+        
+        <h1 data-translate="title">Welcome to the Lunary Network</h1>
+        <hr>
+
+        <div class="language-select">
+            <img src="https://cdn-icons-png.flaticon.com/128/3898/3898082.png" alt="Language" title="Select Language" onclick="toggleLanguageMenu()">
+            <div id="language-menu" class="language-menu">
+                <label for="language-en">
+                    <input type="radio" id="language-en" name="language" value="en" checked onchange="changeLanguage(this.value)">
+                    English
+                </label>
+                <label for="language-de">
+                    <input type="radio" id="language-de" name="language" value="de" onchange="changeLanguage(this.value)">
+                    Deutsch
+                </label>
+                <label for="language-es">
+                    <input type="radio" id="language-es" name="language" value="es" onchange="changeLanguage(this.value)">
+                    Español
+                </label>
+                <label for="language-fr">
+                    <input type="radio" id="language-fr" name="language" value="fr" onchange="changeLanguage(this.value)">
+                    Français
+                </label>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Register/Login Forms -->
+        <div class="form-container" id="register-form">
+            <h2>Register</h2>
+            <form id="register-form-element">
+                <label for="register-username">Username:</label>
+                <input type="text" id="register-username" required>
+                
+                <label for="register-password">Password:</label>
+                <input type="password" id="register-password" required>
+                
+                <button type="button" onclick="register()">Register</button>
+                <span class="toggle-link" onclick="showLogin()">Already have an account? Login</span>
+            </form>
+        </div>
+
+        <div class="form-container" id="login-form" style="display: none;">
+            <h2>Login</h2>
+            <form id="login-form-element">
+                <label for="login-username">Username:</label>
+                <input type="text" id="login-username" required>
+                
+                <label for="login-password">Password:</label>
+                <input type="password" id="login-password" required>
+                
+                <button type="button" onclick="login()">Login</button>
+                <span class="toggle-link" onclick="showRegister()">Don't have an account? Register</span>
+            </form>
+        </div>
+
+        <hr>
+
+        <!-- Other Content -->
+        <h2 data-translate="about">About Us:</h2>
+        <h3>-------------------</h3>
+        <h3>Owner: Vojtaa3181</h3>
+        <h3>YouTube: Vojtaa3181</h3>
+        <h3>-------------------</h3>
+
+        <p>Realm Code: Coming soon!</p>
+        <p>By Vojtaa3181</p>
+
+        <hr>
+
+        <h2 data-translate="serverOverview">Server Overview</h2>
+        <div class="server-info">
+            <h3 data-translate="serverOverview">Server Overview</h3>
+            <p>Welcome to the Lunary Network server! Our server offers a unique gaming experience with a variety of features and game modes.</p>
+
+            <h3 data-translate="features">Features</h3>
+            <ul>
+                <li>Server Availability - The server is usually online during selected hours.</li>
+                <li>SkyGen & PvP - You can get good items in SkyGen, but you can lose all in PvP.</li>
+                <li>Custom Plugins - Enjoy a range of custom plugins that enhance gameplay.</li>
+                <li>Active Community - Join a friendly and active community of players.</li>
+            </ul>
+
+            <h3 data-translate="rules">Rules</h3>
+            <ul>
+                <li>No griefing or destruction of others' builds.</li>
+                <li>Respect all players and follow server guidelines.</li>
+                <li>Do not use hacks or cheats that give you an unfair advantage.</li>
+                <li>Keep the chat friendly and appropriate.</li>
+            </ul>
+
+            <h3 data-translate="contactUs">Contact Us</h3>
+            <p>If you have any questions or need support, please reach out to us through the <a href="contact.html">Contact Us</a> page.</p>
+        </div>
+
+        <hr>
+
+        <h2 data-translate="contactUs">Contact Us</h2>
+        <form action="mailto:vojtechvostrak@gmail.com" method="post" enctype="text/plain">
+            <label for="name">Want to report a bug or something?:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Your Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            
+            <button type="submit" data-translate="sendMessage">Send Message</button>
+        </form>
+    </div>
+
+    <script>
+        function changeLanguage(language) {
+            const translations = {
+                en: {
+                    title: "Welcome to the Lunary Network",
+                    about: "About Us:",
+                    serverOverview: "Server Overview",
+                    features: "Features",
+                    rules: "Rules",
+                    contactUs: "Contact Us",
+                    sendMessage: "Send Message",
+                    searchPlaceholder: "Search...",
+                    languages: "Languages"
+                },
+                de: {
+                    title: "Willkommen im Lunary Network",
+                    about: "Über uns:",
+                    serverOverview: "Server Übersicht",
+                    features: "Funktionen",
+                    rules: "Regeln",
+                    contactUs: "Kontaktiere uns",
+                    sendMessage: "Nachricht senden",
+                    searchPlaceholder: "Suche...",
+                    languages: "Sprachen"
+                },
+                es: {
+                    title: "Bienvenido a la Red Lunary",
+                    about: "Acerca de Nosotros:",
+                    serverOverview: "Visión General del Servidor",
+                    features: "Características",
+                    rules: "Reglas",
+                    contactUs: "Contáctanos",
+                    sendMessage: "Enviar Mensaje",
+                    searchPlaceholder: "Buscar...",
+                    languages: "Idiomas"
+                },
+                fr: {
+                    title: "Bienvenue sur le Réseau Lunary",
+                    about: "À Propos de Nous:",
+                    serverOverview: "Présentation du Serveur",
+                    features: "Fonctionnalités",
+                    rules: "Règles",
+                    contactUs: "Contactez-Nous",
+                    sendMessage: "Envoyer un Message",
+                    searchPlaceholder: "Rechercher...",
+                    languages: "Langues"
+                }
+            };
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-translate');
+                el.textContent = translations[language][key] || key;
+            });
+            document.documentElement.lang = language;
+            document.getElementById('language-menu').style.display = 'none';
+        }
+
+        function toggleLanguageMenu() {
+            const menu = document.getElementById('language-menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function register() {
+            const username = document.getElementById('register-username').value;
+            const password = document.getElementById('register-password').value;
+            if (username && password) {
+                localStorage.setItem('username', username);
+                localStorage.setItem('password', password);
+                alert('Registration successful!');
+                showLogin();
+            } else {
+                alert('Please fill in both fields.');
+            }
+        }
+
+        function login() {
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+            const storedUsername = localStorage.getItem('username');
+            const storedPassword = localStorage.getItem('password');
+            if (username === storedUsername && password === storedPassword) {
+                alert('Login successful!');
+            } else {
+                alert('Invalid username or password.');
+            }
+        }
+
+        function showRegister() {
+            document.getElementById('register-form').style.display = 'block';
+            document.getElementById('login-form').style.display = 'none';
+        }
+
+        function showLogin() {
+            document.getElementById('register-form').style.display = 'none';
+            document.getElementById('login-form').style.display = 'block';
+        }
+    </script>
+</body>
+
+</html>
